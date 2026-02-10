@@ -281,7 +281,7 @@ try {
     def encoded = URLEncoder.encode(idAlumno, "UTF-8")
     def slurper = new JsonSlurper()
 
-    if ("alumnos".equalsIgnoreCase(ocVal)) {
+    if ("alumnos".equalsIgnoreCase(ocVal) || "__ACCOUNT__".equalsIgnoreCase(ocVal) || ObjectClass.ACCOUNT_NAME.equalsIgnoreCase(ocVal)) {
         def url = serviceAddress + "/aic/alumnos?idAlumno=" + encoded
         def resp = httpGet(url, connectTimeoutMs, readTimeoutMs)
 
